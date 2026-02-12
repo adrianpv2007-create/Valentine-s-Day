@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mensaje importante 💘</title>
+
+<style>
+body {
+    margin: 0;
+    background: #ffd1dc;
+    font-family: "Comic Sans MS", cursive;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pantalla {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.activa {
+    display: flex;
+}
+
+h1 {
+    color: #c71585;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#si {
+    background: #ff69b4;
+    color: white;
+}
+
+#no {
+    background: #ffb6c1;
+    color: white;
+    position: absolute;
+}
+
+img {
+    max-width: 250px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="p1" class="pantalla activa">
+    <h1>Hola señora Lelysita cocolon, le tengo una pregunta 💖</h1>
+</div>
+
+<div id="p2" class="pantalla">
+    <h1 style="color:red;">Mas vale que contestes bien sapa 😠</h1>
+    <img src="monkey.png">
+</div>
+
+<div id="p3" class="pantalla">
+    <h1>¿Quieres ser mi San Valentín? 💘</h1>
+    <button id="si">Sí 💕</button>
+    <button id="no">No 💔</button>
+</div>
+
+<div id="p4" class="pantalla">
+    <h1 style="color:#8b008b;">
+        Tankiu señora calva, la amo mucho gracias por aceptar jsaksjkasj <br>
+        nadie fue obligada, tenga un ramote 💐💖
+    </h1>
+    <img src="gato.png">
+</div>
+
+<script>
+const pantallas = ["p1","p2","p3","p4"];
+let actual = 0;
+
+function siguiente() {
+    document.getElementById(pantallas[actual]).classList.remove("activa");
+    actual++;
+    document.getElementById(pantallas[actual]).classList.add("activa");
+}
+
+setTimeout(siguiente, 2500);
+setTimeout(siguiente, 5000);
+
+const botonNo = document.getElementById("no");
+
+botonNo.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    botonNo.style.left = x + "px";
+    botonNo.style.top = y + "px";
+});
+
+document.getElementById("si").addEventListener("click", siguiente);
+</script>
+
+</body>
+</html>
